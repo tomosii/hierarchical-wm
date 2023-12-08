@@ -1,0 +1,78 @@
+logdir: null
+device: cuda
+
+# total_steps: 10000
+# train_every: 5
+epochs: 30
+
+dataset:
+  name: mmnist
+  batch_size: 32
+
+environment:
+  # name: MountainCar-v0
+  name: CartPole-v1
+  image_width: 64
+  image_height: 64
+  seed: 0
+  action_repeat: 1
+
+replay_buffer:
+  capacity: 500
+  batch_size: 4
+  chunk_length: 6
+
+agent:
+  # embedded_observation_size: 1024
+  # deterministic_state_size: 1024
+  # stochastic_state_size: 32
+  embedded_observation_size: 200
+  deterministic_state_size: 200
+  stochastic_state_size: 20
+  
+  world_model:
+    learning_rate: 0.001
+    clip_grad: 100.0
+
+    context_length: 10
+
+    encoder:
+      depth: 32
+      kernel_size: 4
+      stride: 2
+    
+    decoder:
+      depth: 32
+      kernel_size: 5
+      stride: 2
+      output: pixel
+
+    representation_model:
+      hidden_size: 512
+    
+    transition_model:
+      hidden_size: 512
+
+    recurrent_model:
+      hidden_size: 512
+
+    reward_head:
+      hidden_size: 512
+    
+    cost_model:
+      hidden_size: 64
+  
+  behavior:
+    discount_factor: 0.99
+    return_lambda: 0.95
+
+    actor:
+      learning_rate: 0.0003
+      hidden_size: 512
+    
+    critic:
+      learning_rate: 0.0003
+      hidden_size: 512
+  
+
+

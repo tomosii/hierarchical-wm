@@ -1,0 +1,13 @@
+gymnasium
+dm_control
+mujoco
+wandb
+matplotlib
+tqdm
+hydra-core
+opencv-python
+torch
+torchvision
+tensorflow
+tensorflow-datasets
+tensorflow-probability

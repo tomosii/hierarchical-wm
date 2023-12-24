@@ -1,0 +1,10 @@
+tensorflow
+tensorflow-datasets
+tensorflow-probability
+pyYAML
+numpy
+scikit-image
+imageio
+minerl-navigate
+wandb
+matplotlib
